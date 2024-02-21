@@ -20,14 +20,14 @@ Final model chosen: Linear Regression with outliers addressed
 
 ## Performance
 
-Performance metrics for the various models tested;</p></p>
-3Features:</p>
-Train R² score: 0.053956942628710314</p>
-Test R² score: 0.062424262775907846</p></p>
+Performance metrics for the various models tested;</p>
+3Features:
+Train R² score: 0.053956942628710314
+Test R² score: 0.062424262775907846</p>
 
-AllFeatures:</p>
-Train R² score: 0.35219611032772424</p>
-Test R² score: 0.3923934272636701</p></p>
+AllFeatures:
+Train R² score: 0.35219611032772424
+Test R² score: 0.3923934272636701</p>
 
 AllFeatures with median strategy for SimpleImputer:</p>
 Train R² score: 0.3522687666677199</p>
