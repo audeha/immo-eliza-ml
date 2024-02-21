@@ -27,7 +27,7 @@ def train():
 
     # Detect and remove outliers using Z-score
     z = np.abs(stats.zscore(data[num_features]))
-    outliers = np.where(z > 4)  # Adjust the threshold as needed
+    outliers = np.where(z > 4)
 
     # Print and remove outliers
     print("Outliers detected in the dataset:\n", data.iloc[outliers[0]])
