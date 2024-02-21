@@ -5,7 +5,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-
+from scipy import stats
+import numpy as np
 
 def train():
     """Trains a linear regression model on the full dataset and stores output."""
@@ -20,14 +21,25 @@ def train():
     cat_features = ['property_type', 'subproperty_type', 'region', 'province', 'locality',
        'equipped_kitchen', 'state_building', 'epc', 'heating_type']
 
-    # Split the data into features and target
+    # Impute missing values on the entire dataset
+    imputer = SimpleImputer(strategy="mean")
+    data[num_features] = imputer.fit_transform(data[num_features])
+
+    # Detect and remove outliers using Z-score
+    z = np.abs(stats.zscore(data[num_features]))
+    outliers = np.where(z > 4)  # Adjust the threshold as needed
+
+    # Print and remove outliers
+    print("Outliers detected in the dataset:\n", data.iloc[outliers[0]])
+    data = data.drop(outliers[0])
+
+    # Split the updated data into features and target
     X = data[num_features + fl_features + cat_features]
     y = data["price"]
 
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.20, random_state=505
-    )
+        X, y, test_size=0.20, random_state=505)
 
     # Impute missing values using SimpleImputer
     imputer = SimpleImputer(strategy="mean")
