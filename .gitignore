@@ -8,7 +8,7 @@
 !requirements.txt
 !MODELSCARD
 !README.md
-!knn_compare_model
+!knn_compare_model.png
 
 # ...even if they are in subdirectories
 !*/
