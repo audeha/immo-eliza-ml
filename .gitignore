@@ -3,7 +3,7 @@
 
 # But not these files...
 !.gitignore
-!outlierszscore_train.py
+!GBR_train.py
 !predict.py
 !requirements.txt
 !MODELSCARD
