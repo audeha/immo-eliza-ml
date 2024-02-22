@@ -8,7 +8,7 @@ Data preprocessing, Model training & Model evaluation
 
 **Input dataset** = "data/properties.csv" </p>
 **Target variable** = "price"</p>
-**Features** = 
+**Features** =
 - num_features = ['latitude', 'longitude', 'construction_year', 'total_area_sqm','surface_land_sqm', 'nbr_frontages', 'nbr_bedrooms', 'terrace_sqm', 'garden_sqm', 'primary_energy_consumption_sqm', 'cadastral_income']</p>
 - fl_features = ['fl_furnished', 'fl_open_fire', 'fl_terrace', 'fl_garden', 'fl_swimming_pool', 'fl_floodzone', 'fl_double_glazing']</p>
 - cat_features = ['property_type', 'subproperty_type', 'region', 'province', 'locality',
@@ -16,7 +16,7 @@ Data preprocessing, Model training & Model evaluation
 
 ## Model details
 
-Models tested
+Models tested on Day 1
 - Linear Regression with only 3 features,
 - Linear Regression with median strategy for SimpleImputer,
 - Linear Regression with test_size=0.25,
@@ -25,7 +25,13 @@ Models tested
 - Linear Regression with skewness and outliers addressed,
 - Linear Regression with scaling addressed </p>
 
-Final model chosen: Linear Regression with outliers addressed
+Models tested on Day 2
+- GradientBoostingRegressor,
+- RandomForestRegressor,
+- DecisionTreeRegressor,
+- KNeighborsRegressor
+
+Final model chosen: GradientBoostingRegressor
 
 ## Performance
 
@@ -51,7 +57,7 @@ Performance metrics for the various models tested
     - Test R² score: 0.4307915410859161
 
 - Features with outliers addressed (outliers_train.py) <br>
-    removed [1914 rows x 30 columns] with z > 4 
+    removed [1914 rows x 30 columns] with z > 4
     - Train R² score: 0.4260505281666841
     - Test R² score: 0.44588876845802783
 
@@ -63,7 +69,32 @@ Performance metrics for the various models tested
     - Train R² score: 0.3521961010205149
     - Test R² score: 0.3923919574804545
 
+- GradientBoostingRegressor (random_state=0, learning_rate=0.15)
+    - R² of Gradient Boosting Regressor on training set: 0.701
+    - R² of Gradient Boosting Regressor on test set: 0.647
+
+- GradientBoostingRegressor (random_state=0, max_depth=4)
+    - R² of Gradient Boosting Regressor on training set: 0.746
+    - R² of Gradient Boosting Regressor on test set: 0.671
+
+- RandomForestRegressor(max_depth=7, n_estimators=100, random_state=42)
+    - R² of Random Forest Regressor on training set: 0.653
+    - R² of Random Forest Regressor on test set: 0.569
+
+- RandomForestRegressor(n_estimators=100, random_state=0)
+    - R² of Random Forest Regressor on training set: 0.957
+    - R² of Random Forest Regressor on test set: 0.706
+
+- DecisionTreeRegressor(max_depth=3, random_state=0)
+    - R² of Decision Tree Regressor on training set: 0.312
+    - R² of Decision Tree Regressor on test set: 0.270
+
+- KNeighborsRegressor(n_neighbors=10)
+    - R² of KNN Regressor on training set: 0.494
+    - R² of KNN Regressor on test set: 0.383 </p>
+
 Visualizations
+![Alt Text](./knn_compare_model.png)
 
 ## Limitations
 
