@@ -119,6 +119,15 @@ However, when looking at the R² score on the training set, we see that there is
 overfitting of the model. <br>
 So we choose the next best one which is the Gradient Boosting Generator model.
 
+## About the model
+The Gradient Boosting Generator model is like trying to solve a complex puzzle.
+Instead of trying to solve it all at once, you start with a rough guess and then
+ gradually improve on it, piece by piece.</p>
+Random state <br>
+ Initializing the internal random number generator, which will decide the splitting of data at each node.
+Learning_rate <br>
+ 0.15 means that each tree's contribution to the final ensemble prediction is scaled down by 15%
+
 
 ## Usage
 
