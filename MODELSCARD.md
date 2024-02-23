@@ -29,7 +29,11 @@ Models tested on Day 2
 - GradientBoostingRegressor,
 - RandomForestRegressor,
 - DecisionTreeRegressor,
-- KNeighborsRegressor
+- KNeighborsRegressor,
+- SVR
+
+Models tested on Day 3
+- SVR after scaling
 
 Final model chosen: GradientBoostingRegressor
 
@@ -91,14 +95,30 @@ Performance metrics for the various models tested
 
 - KNeighborsRegressor(n_neighbors=10)
     - R² of KNN Regressor on training set: 0.494
-    - R² of KNN Regressor on test set: 0.383 </p>
+    - R² of KNN Regressor on test set: 0.383
+
+- Support Vector Regressor (took 26m to run)
+    - R² of Support Vector Regressor on training set: -0.045
+    - R² of Support Vector Regressor on test set: -0.050
+
+
+- SVR with gamma=10 (took 27min to run)
+    - R² of Support Vector Regressor on training set: -0.045
+    - R² of Support Vector Regressor on test set: -0.050</p>
 
 Visualizations
 ![Alt Text](./knn_compare_model.png)
+![Alt Text](./comparisonModels.png)
 
 ## Limitations
 
-What are the limitations of your model?
+What are the limitations of your model?</p>
+When looking at the plot that compares the different models we see that the
+Random Forest model gets the best tests score. <br>
+However, when looking at the R² score on the training set, we see that there is
+overfitting of the model. <br>
+So we choose the next best one which is the Gradient Boosting Generator model.
+
 
 ## Usage
 
@@ -114,7 +134,7 @@ What are the dependencies;</p>
 `import numpy as np`<br>
 
 What scripts are there to train the model;</p>
-`python3 outliers_train.py`
+`python3 GBR_train.py`
 
 How to generate predictions;</p>
 `python3 predict.py -i 'data/properties.csv'`
